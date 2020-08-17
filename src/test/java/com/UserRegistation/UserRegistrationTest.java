@@ -109,6 +109,18 @@ public class UserRegistrationTest {
         Assert.assertFalse(validationResult);
     }
 
+    @Test
+    public void givenPassword_WhenProper_ShouldReturnTrue() {
+        UserRegistration userRegistration = new UserRegistration();
+        boolean validationResult = userRegistration.validatePassword("ilaf4567");
+        Assert.assertTrue(validationResult);
+    }
 
+    @Test
+    public void givenPassword_WhenShort_ShouldReturnFalse() {
+        UserRegistration userRegistration = new UserRegistration();
+        boolean validationResult = userRegistration.validatePassword("ila45");
+        Assert.assertFalse(validationResult);
+    }
 
 }
