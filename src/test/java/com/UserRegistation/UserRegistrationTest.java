@@ -38,4 +38,39 @@ public class UserRegistrationTest {
         boolean validationResult = userRegistration.validateName("Il@f");
         Assert.assertFalse(validationResult);
     }
+
+    @Test
+    public void givenLastName_WhenProper_ShouldReturnTrue() {
+        UserRegistration userRegistration = new UserRegistration();
+        boolean validationResult = userRegistration.validateName("Ilaf");
+        Assert.assertTrue(validationResult);
+    }
+
+    @Test
+    public void givenLastName_WhenShort_ShouldReturnFalse() {
+        UserRegistration userRegistration = new UserRegistration();
+        boolean validationResult = userRegistration.validateName("Il");
+        Assert.assertFalse(validationResult);
+    }
+
+    @Test
+    public void givenLastName_WhenStartWithSmallLetters_ShouldReturnFalse() {
+        UserRegistration userRegistration = new UserRegistration();
+        boolean validationResult = userRegistration.validateName("ilaf");
+        Assert.assertFalse(validationResult);
+    }
+
+    @Test
+    public void givenLastName_WhenHaveNumbers_ShouldReturnFalse() {
+        UserRegistration userRegistration = new UserRegistration();
+        boolean validationResult = userRegistration.validateName("Ilaf03");
+        Assert.assertFalse(validationResult);
+    }
+
+    @Test
+    public void givenLastName_WhenHaveSpecialCharacters_ShouldReturnFalse() {
+        UserRegistration userRegistration = new UserRegistration();
+        boolean validationResult = userRegistration.validateName("Il@f");
+        Assert.assertFalse(validationResult);
+    }
 }
