@@ -112,7 +112,7 @@ public class UserRegistrationTest {
     @Test
     public void givenPassword_WhenProper_ShouldReturnTrue() {
         UserRegistration userRegistration = new UserRegistration();
-        boolean validationResult = userRegistration.validatePassword("Ilaf4567");
+        boolean validationResult = userRegistration.validatePassword("Il@f4567");
         Assert.assertTrue(validationResult);
     }
 
@@ -131,9 +131,16 @@ public class UserRegistrationTest {
     }
 
     @Test
+    public void givenPassword_WhenContainsNoSpecialCharacters_ShouldReturnFalse() {
+        UserRegistration userRegistration = new UserRegistration();
+        boolean validationResult = userRegistration.validatePassword("ilAf1234");
+        Assert.assertFalse(validationResult);
+    }
+
+    @Test
     public void givenPassword_WhenShort_ShouldReturnFalse() {
         UserRegistration userRegistration = new UserRegistration();
-        boolean validationResult = userRegistration.validatePassword("ila45");
+        boolean validationResult = userRegistration.validatePassword("il@45");
         Assert.assertFalse(validationResult);
     }
 
