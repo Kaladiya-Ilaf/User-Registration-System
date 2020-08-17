@@ -95,5 +95,20 @@ public class UserRegistrationTest {
         Assert.assertFalse(validationResult);
     }
 
+    @Test
+    public void givenMobileNumber_WhenProper_ShouldReturnTrue() {
+        UserRegistration userRegistration = new UserRegistration();
+        boolean validationResult = userRegistration.validateMobileNumber("91 9199527878");
+        Assert.assertTrue(validationResult);
+    }
+
+    @Test
+    public void givenMobileNumber_WhenShort_ShouldReturnFalse() {
+        UserRegistration userRegistration = new UserRegistration();
+        boolean validationResult = userRegistration.validateMobileNumber("9594523623");
+        Assert.assertFalse(validationResult);
+    }
+
+
 
 }
