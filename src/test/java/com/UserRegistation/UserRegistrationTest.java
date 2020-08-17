@@ -73,4 +73,27 @@ public class UserRegistrationTest {
         boolean validationResult = userRegistration.validateName("Il@f");
         Assert.assertFalse(validationResult);
     }
+
+    @Test
+    public void givenEmail_WhenProper_ShouldReturnTrue() {
+        UserRegistration userRegistration = new UserRegistration();
+        boolean validationResult = userRegistration.validateEmail("ilafkaladiya@gmail.com");
+        Assert.assertTrue(validationResult);
+    }
+
+    @Test
+    public void givenEmail_WhenMissingMandotarySymbols_ShouldReturnFalse() {
+        UserRegistration userRegistration = new UserRegistration();
+        boolean validationResult = userRegistration.validateEmail("ilafkaladiyagmail.com");
+        Assert.assertFalse(validationResult);
+    }
+
+    @Test
+    public void givenEmail_WhenMissingCompulsoryPart_ShouldReturnFalse() {
+        UserRegistration userRegistration = new UserRegistration();
+        boolean validationResult = userRegistration.validateEmail("ilafkaladiya@gmail.");
+        Assert.assertFalse(validationResult);
+    }
+
+
 }
