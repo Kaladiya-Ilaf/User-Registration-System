@@ -124,6 +124,13 @@ public class UserRegistrationTest {
     }
 
     @Test
+    public void givenPassword_WhenContainsNoNumber_ShouldReturnFalse() {
+        UserRegistration userRegistration = new UserRegistration();
+        boolean validationResult = userRegistration.validatePassword("ilAfkaladiya");
+        Assert.assertFalse(validationResult);
+    }
+
+    @Test
     public void givenPassword_WhenShort_ShouldReturnFalse() {
         UserRegistration userRegistration = new UserRegistration();
         boolean validationResult = userRegistration.validatePassword("ila45");
